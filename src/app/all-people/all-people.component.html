@@ -1,0 +1,20 @@
+<div class="main">
+    <div class="container">
+        <div class="row py-5">
+            <div *ngFor="let person of AllPeople" class="col-md-3">
+                <div class="person">
+                    <a [routerLink]="['/person-details', person.id]">
+                        <img [src]="imgPath+person.profile_path" class="w-100 img shadow">
+                    </a>
+                    <h4 class=" text-white text-capitalize title my-4">{{person.name}}</h4>
+                </div>
+            </div>
+
+            <!-- PAGE NUMBERS -->
+            <div class="d-flex justify-content-center align-items-center flex-column flex-md-row">
+                <button class="text-white prev bg-danger text-capitalize" (click)="getAllPeople($event)">Prev</button>
+                <button class="text-white next bg-danger text-capitalize" (click)="getAllPeople($event)">Next</button>
+            </div>
+        </div>
+    </div>
+</div>

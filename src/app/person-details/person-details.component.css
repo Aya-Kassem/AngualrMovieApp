@@ -1,0 +1,26 @@
+.light-bg{
+    background-color: rgba(36, 186, 239, .9);
+    border-radius: 5px;
+    width: fit-content;
+}
+.main{
+    padding: 40px 0;
+}
+.content{
+    font-size: 18px;
+}
+.card{
+    background-color: inherit !important;
+    border: 0;
+}
+
+.card-img-top{
+    max-height: 400px;
+}
+@media (min-width: 768px) and (max-width: 992px){
+    .container{
+        max-width: 800px !important;
+    }
+}
+
+

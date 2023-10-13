@@ -1,0 +1,92 @@
+<!-- HEADER -->
+<div class="header d-flex align-items-start flex-column justify-content-end">
+    <h1 class="text-white text-uppercase heading">Our Latest Movies</h1>
+    <div class="carousel-wrapper p-0 text-center">
+        <ngx-slick-carousel class="carousel" #slickModel="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let movie of allMovies">
+                <a [routerLink]="['/movie-details', movie.id]">
+                    <img [src]="imgPath+movie.poster_path" class="w-100 h-100">
+                </a>
+            </div>
+        </ngx-slick-carousel>
+
+        <button class='btn-prev left'></button>
+        <button class='btn-next right'></button>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="home">
+    <div class="container">
+        <div class="row py-5">
+            <!-- MOVIES -->
+            <div class="col-md-4 heading-wrapper px-3 px-md-0 position-relative align-self-center">
+                <h1 class="text-white text-capitalize my-3">
+                    trending movies to watch now
+                </h1>
+                <p class="text-muted text-capitalize my-3">most wachted movies by days</p>
+                <div class="line"></div>
+            </div>
+            <div *ngFor="let movie of allMovies" class="col-6 col-md-2 mt-3">
+                <div class="movie position-relative">
+                    <a [routerLink]="['/movie-details', movie.id]">
+                        <img [src]="imgPath+movie.poster_path" class="w-100">
+                    </a>
+                    <div class="vote text-white">
+                        {{movie.vote_average}}
+                    </div>
+                    <h4 class=" text-white text-capitalize title mt-2">{{movie.title}}</h4>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mb-5 my-md-2">
+                <button type="button" class="view-all-btn text-white text-uppercase shadow" (click)="viewAll('/AllMovies')">VIEW ALL MOVIES</button>
+            </div>
+
+            <!-- TV SHOW -->
+            <div class="col-md-4 heading-wrapper  position-relative align-self-center">
+                <h1 class="text-white text-capitalize my-3">
+                    trending TV to watch right now
+                </h1>
+                <p class="text-muted text-capitalize my-3">most wachted TV by days</p>
+                <div class="line"></div>
+            </div>
+            <div *ngFor="let show of allShows" class="col-6 col-md-2 mt-4">
+                <div class="show position-relative">
+                    <a [routerLink]="['/tv-details', show.id]">
+                        <img [src]="imgPath+show.poster_path" class="w-100">
+                    </a>
+                    <div class="vote text-white">
+                        {{show.vote_average}}
+                    </div>
+                    <h4 class=" text-white text-capitalize title mt-2">{{show.name}}</h4>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mb-5 mt-md-4 mb-md-3">
+                <button type="button" class="view-all-btn text-white text-uppercase shadow" (click)="viewAll('/AllTv')">VIEW ALL TV SHOW</button>
+            </div>
+
+
+            <!-- PEOPLE -->
+            <div class="col-md-4 heading-wrapper  position-relative align-self-center">
+                <h1 class="text-white text-capitalize my-3">
+                    trending people to watch right now
+                </h1>
+                <p class="text-muted text-capitalize my-3">most wachted people by days</p>
+                <div class="line"></div>
+            </div>
+
+            <div *ngFor="let person of allpeople" class="col-6 col-md-2 mt-4">
+                <div class="person">
+                    <a [routerLink]="['/person-details', person.id]">
+                        <img [src]="imgPath+person.profile_path" class="w-100">
+                    </a>
+                    <h4 class=" text-white text-capitalize title mt-2">{{person.name}}</h4>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-md-4">
+                <button type="button" class="view-all-btn text-white text-uppercase shadow" (click)="viewAll('/AllPeople')">VIEW ALL PEOPLE</button>
+            </div>
+    
+        </div>
+    </div>
+</div>

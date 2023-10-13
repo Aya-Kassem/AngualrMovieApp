@@ -1,0 +1,51 @@
+<div class="main py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 mx-auto text-white py-5">
+                <h1 class="text-capitalize my-3">Register Now</h1>
+                <h1 class="text-capitalize my-3 text-danger" *ngIf="err">{{err}}</h1>
+
+                <form [formGroup]="RegisterForm" (ngSubmit) = 'SendFormData(RegisterForm)'>
+                    <label class="form-label">firstName :</label>
+                    <input class="form-control mb-3" type="text" formControlName="first_name" [class.valid]="RegisterForm.get('first_name')?.valid">
+                    <div class="alert text-danger p-0" *ngIf="RegisterForm.get('first_name')?.errors != null && RegisterForm.get('first_name')?.touched">
+                        <p class="m-0 text-capitalize" *ngIf="RegisterForm.get('first_name')?.errors?.required">First Name is Required</p>
+                        <p class="m-0 text-capitalize" *ngIf="RegisterForm.get('first_name')?.errors?.minlength">Min Length is 3 Letters</p>
+                        <p class="m-0 text-capitalize" *ngIf="RegisterForm.get('first_name')?.errors?.maxlength">Max Length is 8 Letters</p>
+                    </div>
+
+                    <label class="form-label">lastName :</label>
+                    <input class="form-control mb-3" type="text" formControlName="last_name" [class.valid]="RegisterForm.get('last_name')?.valid">
+                    <div class="alert text-danger p-0" *ngIf="RegisterForm.get('last_name')?.errors != null && RegisterForm.get('last_name')?.touched">
+                        <p class="m-0 text-capitalize" *ngIf="RegisterForm.get('last_name')?.errors?.required">Last Name is Required</p>
+                        <p class="m-0 text-capitalize" *ngIf="RegisterForm.get('last_name')?.errors?.minlength">Min Length is 3 Letters</p>
+                        <p class="m-0 text-capitalize" *ngIf="RegisterForm.get('last_name')?.errors?.maxlength">Max Length is 8 Letters</p>
+                    </div>
+
+                    <label class="form-label text-capitalize">Age :</label>
+                    <input class="form-control mb-3" type="number" formControlName="age" [class.valid]="RegisterForm.get('age')?.valid">
+                    <div class="alert text-danger p-0" *ngIf="RegisterForm.get('age')?.errors != null && RegisterForm.get('age')?.touched">
+                        <p class="m-0 text-capitalize" *ngIf="RegisterForm.get('age')?.errors?.required">Age is Required</p>
+                        <p class="m-0 text-capitalize" *ngIf="RegisterForm.get('age')?.errors?.pattern">Age is Not Valid</p>
+                    </div>
+
+                    <label class="form-label text-capitalize">Email :</label>
+                    <input class="form-control mb-3" type="email" formControlName="email" [class.valid]="RegisterForm.get('email')?.valid">
+                    <div class="alert text-danger p-0" *ngIf="RegisterForm.get('email')?.errors != null && RegisterForm.get('email')?.touched">
+                        <p class="m-0 text-capitalize" *ngIf="RegisterForm.get('email')?.errors?.required">Email is Required</p>
+                        <p class="m-0 text-capitalize" *ngIf="RegisterForm.get('email')?.errors?.email">Email is Not Valid</p>
+                    </div>
+
+                    <label class="form-label text-capitalize">Password :</label>
+                    <input class="form-control mb-3" type="password" formControlName="password" [class.valid]="RegisterForm.get('password')?.valid">
+                    <div class="alert text-danger p-0" *ngIf="RegisterForm.get('password')?.errors != null && RegisterForm.get('password')?.touched">
+                        <p class="m-0 text-capitalize" *ngIf="RegisterForm.get('password')?.errors?.required">Password is Required</p>
+                        <p class="m-0 text-capitalize" *ngIf="RegisterForm.get('password')?.errors?.pattern">Please Start With Capital Character and Enclude any Digit</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-danger d-block ms-auto text-uppercase" [disabled]="RegisterForm.invalid">REGISTER</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <h1 class="text-capitalize text-white my-3">Login Form</h1>
+                <h1 class="text-capitalize text-danger my-3" *ngIf="erro">{{erro}}</h1>
+                <form [formGroup]="LoginForm" (ngSubmit) = 'SendLoginData(LoginForm)'>
+                    <label class="form-label text-capitalize text-white">Email :</label>
+                    <input type="text" class="form-control mb-4" formControlName="email" [class.valid]="LoginForm.get('email')?.valid">
+                    <div class="alert text-danger p-0" *ngIf="LoginForm.get('email')?.errors != null && LoginForm.get('email')?.touched">
+                        <p class="text-capitalize m-0" *ngIf="LoginForm.get('email')?.errors?.required">email is required</p>
+                        <p class="text-capitalize m-0" *ngIf="LoginForm.get('email')?.errors?.email">email is not valid</p>
+                    </div>
+
+                    <label class="form-label text-capitalize text-white">Password :</label>
+                    <input type="password" class="form-control mb-4" formControlName="password" [class.valid]="LoginForm.get('password')?.valid">
+                    <div class="alert text-danger p-0" *ngIf="LoginForm.get('password')?.errors != null && LoginForm.get('password')?.touched">
+                        <p class="text-capitalize m-0" *ngIf="LoginForm.get('password')?.errors?.required">password is required</p>
+                        <p class="text-capitalize m-0" *ngIf="LoginForm.get('password')?.errors?.pattern">password is not valid</p>
+                    </div>
+
+
+                    <div class="d-flex justify-content-between flex-column flex-md-row">
+                        <p class="text-capitalize text-white">
+                            Don`t Have an Account?
+                            <span class="text-uppercase text-danger register" (click)="Register()">register</span>
+                        </p>
+
+                        <button type="submit" class="btn btn-danger text-white text-uppercase" [disabled]='LoginForm.invalid'>login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

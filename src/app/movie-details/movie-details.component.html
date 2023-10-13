@@ -1,0 +1,31 @@
+<div class="main">
+    
+    <div class="container">
+        <div class="row px-3 px-md-4 px-lg-0">
+            <div class="col-lg-4 py-0 px-lg-3 my-4 my-lg-0">
+                <img [src]="imgPath+requestedMovie.poster_path" class="w-100 shadow img">
+            </div>
+            <div class="col-lg-8 my-4 my-lg-0">
+                <div class="text-white">
+                    <h1 class="text-capitalize">{{requestedMovie.title}}</h1>
+
+                    <div class="d-flex flex-column flex-sm-row my-4">
+                        <p class="type px-2 py-1 me-3 my-2 my-sm-0" *ngFor="let type of genres">{{type.name}}</p>
+                    </div>
+
+                    <p class="text-capitalize">vote : {{requestedMovie.vote_average}}</p>
+                    <p class="text-capitalize">Vote Count : {{requestedMovie.vote_count}}</p>
+                    <p class="text-capitalize">Popularity : {{requestedMovie.popularity}}</p>
+                    <p class="text-capitalize">Release Date : {{requestedMovie.release_date}}</p>
+                    <p class="text-muted text-capitalize overview">{{requestedMovie.overview}}</p>
+                </div>
+            </div>
+        
+        
+            <!-- <div class="d-flex justify-content-center flex-column flex-md-row">
+                <button class="text-white back-to text-capitalize" [routerLink]="['/AllMovies']">Back To Movies</button>
+                <button class="text-white back-to text-capitalize" [routerLink]="['/home']">Back To Home</button>
+            </div> -->
+        </div>
+    </div>
+</div>

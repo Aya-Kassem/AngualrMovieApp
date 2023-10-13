@@ -1,0 +1,21 @@
+<div class="main">
+    <div class="container">
+        <div class="row py-5">
+
+            <div *ngFor="let movie of AllMovies" class="col-md-3">
+                <div class="movie">
+                    <a [routerLink]="['/movie-details', movie.id]">
+                        <img [src]="imgPath+movie.poster_path" class="w-100 shadow img">
+                    </a>
+                    <h4 class=" text-white text-capitalize title my-4">{{movie.title}}</h4>
+                </div>
+            </div>
+
+            <!-- PAGE NUMBERS -->
+            <div class="d-flex justify-content-center align-items-center flex-column flex-md-row">
+                <button class="text-white prev bg-danger text-capitalize" (click)="getAllMovies($event)">Prev</button>
+                <button class="text-white next bg-danger text-capitalize" (click)="getAllMovies($event)">Next</button>
+            </div>
+        </div>
+    </div>
+</div>

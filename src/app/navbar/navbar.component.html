@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-md navbar-dark py-2 px-4 py-md-1">
+
+    <div class="container-fluid d-flex justify-content-space-between align-items-center py-1">
+        <a href="#" class="navbar-brand text-white d-md-none">
+            Movies
+        </a>
+        
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MyNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="MyNav">
+            <ul class="navbar-nav">
+                <li class="nav-item" *ngIf="isLoged">
+                    <a [routerLink]="['/home']" routerLinkActive="active" class="nav-link text-white text-capitalize px-2">home</a>
+                </li>
+                <li class="nav-item" *ngIf="isLoged">
+                    <a [routerLink]="['/AllMovies']" routerLinkActive="active" class="nav-link text-white text-capitalize px-2">Movies</a>
+                </li>
+                <li class="nav-item" *ngIf="isLoged">
+                    <a [routerLink]="['/AllTv']" routerLinkActive="active" class="nav-link text-white text-capitalize px-2">Tv-Show</a>
+                </li>
+                <li class="nav-item" *ngIf="isLoged">
+                    <a [routerLink]="['/AllPeople']" routerLinkActive="active" class="nav-link text-white text-capitalize px-2">People</a>
+                </li>
+            </ul>
+        
+            <ul class="navbar-nav ms-auto">
+                <div class="d-none d-md-flex me-3">
+                    <a href="#" class="nav-link px-2">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="nav-link px-2">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="nav-link px-2">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="nav-link px-2">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+
+
+                <li class="nav-item" *ngIf="!isLoged">
+                    <a [routerLink]="['/login']" routerLinkActive="active" class="nav-link text-white text-capitalize px-2">login</a>
+                </li>
+                <li class="nav-item" *ngIf="!isLoged">
+                    <a [routerLink]="['/register']" routerLinkActive="active" class="nav-link text-white text-capitalize px-2">register</a>
+                </li>
+                <li class="nav-item" *ngIf="isLoged">
+                    <a href="#" class="nav-link text-white text-capitalize px-2" (click) = "LogOut()">logOut</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</nav>

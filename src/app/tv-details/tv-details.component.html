@@ -1,0 +1,27 @@
+<div class="main">
+    
+    <div class="container">
+        <div class="row px-3 px-md-4 px-lg-0">
+            <div class="col-lg-4 py-0 px-lg-3 my-4 my-lg-0">
+                <img [src]="imgPath+tvDetails.poster_path" class="w-100 shadow img">
+            </div>
+            <div class="col-lg-8 my-4 my-lg-0">
+                <div class="text-white">
+                    <h1 class="text-capitalize">{{tvDetails.name}}</h1>
+
+                    <div class="d-flex flex-column flex-sm-row my-4">
+                        <p class="type px-2 me-3 my-2 my-sm-0" *ngFor="let type of genres">{{type.name}}</p>
+                    </div>
+
+                    <p class="text-capitalize">Seasons Number : {{seasons}}</p>
+                    <p class="text-capitalize">vote : {{tvDetails.vote_average}}</p>
+                    <p class="text-capitalize">Vote Count : {{tvDetails.vote_count}}</p>
+                    <p class="text-capitalize">Popularity : {{tvDetails.popularity}}</p>
+                    <p class="text-capitalize me-3">first air date : {{tvDetails.first_air_date}}</p>
+                    <p class="text-capitalize">Status : {{tvDetails.status}}</p>
+                    <p class="text-muted text-capitalize overview">{{tvDetails.overview}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
